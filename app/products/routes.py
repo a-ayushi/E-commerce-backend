@@ -21,6 +21,7 @@ def create_product(product: schemas.ProductCreate, db: Session = Depends(get_db)
         product_data["image_url"] = str(product.image_url) if product.image_url else None  #  Convert HttpUrl to str
         product_data["owner_id"] = admin.id  
        
+    #    uncover product_data dictionary
         db_product = models.Product(**product_data)
         db.add(db_product)
       
